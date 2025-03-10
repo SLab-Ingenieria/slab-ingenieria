@@ -10,32 +10,16 @@
             margin: 0;
             padding: 0;
             background-color: #f4f4f4;
+            text-align: center;
         }
         header {
             background-color: #002147;
             color: white;
             padding: 20px;
-            text-align: center;
             font-size: 24px;
         }
-        nav {
-            background-color: #004080;
-            padding: 10px;
-            text-align: center;
-        }
-        nav a {
-            color: white;
-            text-decoration: none;
-            margin: 10px;
-            font-size: 18px;
-            padding: 10px;
-        }
-        nav a:hover {
-            background-color: #003366;
-            border-radius: 5px;
-        }
         .container {
-            max-width: 1100px;
+            max-width: 800px;
             margin: 20px auto;
             padding: 20px;
             background: white;
@@ -44,80 +28,89 @@
         }
         .logo {
             width: 150px;
-            display: block;
-            margin: 0 auto 20px;
-        }
-        h1, h2 {
-            color: #002147;
-            text-align: center;
-        }
-        .section {
-            margin-bottom: 30px;
+            margin-bottom: 20px;
         }
         .contacto {
-            text-align: center;
             font-size: 18px;
             color: #333;
         }
         footer {
             background-color: #002147;
             color: white;
-            text-align: center;
             padding: 10px;
             margin-top: 20px;
         }
+        nav {
+            background-color: #004080;
+            padding: 10px;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 10px;
+            margin: 5px;
+            display: inline-block;
+            cursor: pointer;
+        }
+        section {
+            display: none;
+        }
+        .active {
+            display: block;
+        }
     </style>
+    <script>
+        function showSection(sectionId) {
+            document.querySelectorAll('section').forEach(section => {
+                section.classList.remove('active');
+            });
+            document.getElementById(sectionId).classList.add('active');
+        }
+    </script>
 </head>
 <body>
-    <header>
-        SLab Ingeniería
-    </header>
+    <header>SLab Ingeniería</header>
     <nav>
-        <a href="#quienes-somos">¿Quiénes somos?</a>
-        <a href="#servicios">Nuestros Servicios</a>
-        <a href="#proyectos">Nuestros Proyectos</a>
-        <a href="#contacto">Contacto</a>
+        <a onclick="showSection('quienes-somos')">¿Quiénes somos?</a>
+        <a onclick="showSection('mision')">Misión</a>
+        <a onclick="showSection('vision')">Visión</a>
+        <a onclick="showSection('servicios')">Servicios</a>
+        <a onclick="showSection('equipos')">Nuestros Equipos</a>
+        <a onclick="showSection('proyectos')">Proyectos</a>
     </nav>
     <div class="container">
         <img src="LOGO.png" alt="Logo de SLab Ingeniería" class="logo">
         <h1>Excelencia y Liderazgo en Soluciones para tu Proyecto</h1>
-        <p>Ofrecemos servicios de ingeniería en mecánica de suelos, geología, geofísica, topografía, y más.</p>
-        
-        <div id="quienes-somos" class="section">
-            <h2>¿Quiénes somos?</h2>
-            <p><strong>Misión:</strong> Brindar servicios de ingeniería geotécnica y control de calidad a empresas que desarrollan proyectos de infraestructura con calidad y compromiso.</p>
-            <p><strong>Visión:</strong> Ser la empresa líder del Noroeste Mexicano en nuestro ramo, destacando por calidad y servicio.</p>
-        </div>
-        
-        <div id="servicios" class="section">
-            <h2>Nuestros Servicios</h2>
-            <ul>
-                <li>Geotecnia: Estudios de cimentaciones, evaluación de daños estructurales, diseño de pavimentos.</li>
-                <li>Ensayes de campo: SPT, DPL, PCA, pruebas de permeabilidad, georradar, etc.</li>
-                <li>Instrumentación geotécnica: Instalación de piezómetros, medidores de grietas, monitoreo topográfico.</li>
-                <li>Ensayes de laboratorio: Análisis granulométrico, compactación dinámica, triaxial UU, CBR.</li>
-                <li>Control de calidad: Concreto y terracerías.</li>
-                <li>Topografía: Levantamientos topográficos para ingeniería y supervisión de obra.</li>
-            </ul>
-        </div>
-        
-        <div id="proyectos" class="section">
-            <h2>Nuestros Proyectos</h2>
-            <ul>
-                <li>Estudio geotécnico para hospital en Nuevo León.</li>
-                <li>Estudio de mecánica de suelos en fraccionamientos de Mexicali, B.C.</li>
-                <li>Instalación de pozos de monitoreo en el aeropuerto de Guadalajara.</li>
-                <li>Control de calidad en obras industriales y residenciales en Tijuana.</li>
-            </ul>
-        </div>
-        
-        <div id="contacto" class="contacto">
-            <h2>Contacto</h2>
-            <p><strong>Dirección:</strong> Av. Corumuel No. 419, Col. Las Torres, Tijuana, B.C., México</p>
+        <div class="contacto">
+            <p><strong>Dirección:</strong> Av. Corumuel No. 419, Col. Las Torres, Tijuana, B.C., Tijuana, México</p>
             <p><strong>Teléfono:</strong> 664 203 0044</p>
             <p><strong>Correo:</strong> <a href="mailto:slab.ingenieria@gmail.com">slab.ingenieria@gmail.com</a></p>
         </div>
     </div>
+    <section id="quienes-somos">
+        <h2>¿Quiénes somos?</h2>
+        <p>Información sobre la empresa...</p>
+    </section>
+    <section id="mision">
+        <h2>Misión</h2>
+        <p>Brindar servicios de ingeniería geotécnica y control de calidad a empresas que desarrollan proyectos de infraestructura con calidad y compromiso.</p>
+    </section>
+    <section id="vision">
+        <h2>Visión</h2>
+        <p>Ser la empresa líder del Noroeste Mexicano en nuestro ramo, destacando por calidad y servicio.</p>
+    </section>
+    <section id="servicios">
+        <h2>Nuestros Servicios</h2>
+        <p>Lista de servicios como Geotecnia, Ensayes de campo, etc.</p>
+    </section>
+    <section id="equipos">
+        <h2>Nuestros Equipos</h2>
+        <p>Descripción de los equipos utilizados...</p>
+    </section>
+    <section id="proyectos">
+        <h2>Nuestros Proyectos</h2>
+        <p>Lista de proyectos realizados...</p>
+    </section>
     <footer>
         &copy; 2025 SLab Ingeniería - Todos los derechos reservados.
     </footer>
